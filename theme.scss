@@ -7,7 +7,7 @@
 $theme: default;
 
 // headline font
-$headline-font: "Catamaran", "Helvetica Narrow", "Arial Narrow", sans-serif;
+$headline-font: "Slabo 27px", serif;
 
 // main font
 $font: "futura-pt", Helvetica, Arial, sans-serif;
@@ -1828,7 +1828,14 @@ footer {
 }
 
 .like-page {
-  margin-top: 2em;
+  /*
+   * I think this thing is tacky.  If you want it just delete
+   * this line.  The styles below ensure it is already centered.
+   */
+  display: none;
+  margin: 2em auto 0;
+  max-width: 1440px;
+  padding: 0 5%;
 }
 
 // political/social capital displayed next to names
@@ -2233,9 +2240,6 @@ ul.membership-list {
     top: 0;
     bottom: 0;
     @include opacity(1);
-  }
-  .submit-button {
-    float: right;
   }
   .forgot-password {
     clear: right;

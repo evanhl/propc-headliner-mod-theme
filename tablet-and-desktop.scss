@@ -7,10 +7,10 @@
 $theme: default;
 
 // headline font
-$headline-font: "Catamaran", "Helvetica Narrow", "Arial Narrow", sans-serif;
+$headline-font: "Oswald", "Helvetica Narrow", "Arial Narrow", sans-serif;
 
 // main font
-$font: "futura-pt", Helvetica, Arial, sans-serif;
+$font: "Oswald", Helvetica, Arial, sans-serif;
 $text-color: #fff;
 
 $theme-color-1: #128EB8;
@@ -387,7 +387,7 @@ nav, .subnav {
       color: $nav-color;
       padding: 0;
       text-align: left;
-      font-weight: bold;
+      letter-spacing: 1px;
     }
     &.donate, &.get-involved {
       line-height: 40px;
@@ -414,7 +414,7 @@ nav, .subnav {
         float: left;
         width: 40px;
         height: 40px;
-        line-height: 99px;
+        line-height: 87px;
       }
     }
     &.donate {
