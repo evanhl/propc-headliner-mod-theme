@@ -412,10 +412,10 @@ nav, .subnav {
       }
     }
     &.get-involved {
-      background: #ff6503;
+      background: $theme-color-1;
 
       &:hover {
-        background: lighten(#ff6503, 12);
+        background: lighten($theme-color-1, 12);
       }
     }
     &:last-child {
