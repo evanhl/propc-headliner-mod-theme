@@ -1,0 +1,154 @@
+{% if profile.profile_headline.size > 0 %}
+<h2 class="headline">{{ profile.profile_headline }}</h2>
+{% endif %}
+
+{% if profile.profile_content.size > 0 %}
+<div id="intro" class="intro">
+  {{ profile.profile_content }}
+</div>
+{% endif %}
+
+<!-- profile info -->
+<div class="row-fluid profile-wrap">
+  <div class="span4 profile-info">
+    <h2>{{ profile.published_name }}</h2>
+    <div class="supporter-pic">
+      <img src="{{ profile.profile_image_url }}" alt="" class="profile-image">
+      <span class="pc">{{ profile.capital_amount_format }}</span>
+    </div>
+    <div class="supporter-info">
+      <div class="user-status">
+        {% if profile.has_membership_level_badge %}
+        {% if site.has_membership_page? %}
+        <span class="badge"><a href="{{ site.membership_page.url }}">{{ profile.membership_level_badge }}</a></span>
+        {% else %}
+        <span class="badge">{{ profile.membership_level_badge }}</span>
+        {% endif %}
+        {% endif %}
+        {% if profile.rule_violations_count == 1 %}
+        <span class=""> {{ "fugue-flag-yellow" | icon }} Warning</span>
+        {% elsif profile.rule_violations_count == 2 %}
+        <span class=""> {{ "fugue-flag" | icon }} 1 violation</span>
+        {% elsif profile.rule_violations_count == 3 %}
+        <span class=""> {{ "fugue-flag-gray" | icon }} 2 violations</span>
+        {% endif %}
+        <div class="signup-follow-{{ profile.id }}">
+          {% include "signup_follow" with profile %}
+          {% if profile.has_bio? %}
+          <div class="supporter-follow-item">
+            {{ profile.bio | link_urls }}
+          </div>
+          {% endif %}
+          {% if profile.has_website? %}
+          <div class="supporter-follow-item">
+            <a href="{{ profile.website }}">{{ profile.website }}</a>
+          </div>
+          {% endif %}
+          {% if profile.has_twitter_info? %}
+          <div class="supporter-follow-item">
+            <a class="connect-button connect-button-twitter" href="{{ profile.twitter_profile_url }}" data-show-count="true" data-show-screen-name="true">@{{ profile.twitter_login }}</a>
+          </div>
+          {% endif %}
+          {% if settings.is_donor? %}
+          {% if profile.has_fundraising_goal? %}
+          {% assign thermo_width = 50 %}
+          <div class="progress-wrap clearfix">
+            <div class="progress" style="width: {{ thermo_width }}%;">
+              <div class="bar bar-success" style="width: {{ profile.percent_of_fundraising_goal | times:100 }}%;">
+              </div>
+            </div>
+            {% if profile.donations_raised_amount_in_cents == 0 %}
+            <div class="bar-text lessoffset">Just Started</div>
+            {% else %}
+            <div class="bar-text"><span class="bar-text-count">{{ profile.donations_raised_amount_format }}</span> raised</div>
+            {% endif %}
+            <div class="bar-goal">Goal: {{ profile.donations_to_raise_amount_format }}</div>
+
+          </div>
+          {% endif %}
+          {% endif %}
+
+          {% if site.has_button1? %}
+          {% if site.button1_page.type_name == 'Donation' %}
+          <div class="padbottomless">
+            <strong>Donate on behalf of {{ profile.published_name }}:</strong>
+          </div>
+          {% endif %}
+          <a class="submit-button" href="{{ site.button1_page.full_url_with_profile_recruiter }}">{{ site.button1_text }}</a>
+          {% endif %}
+
+          {% if site.has_button2? %}
+          <a class="submit-button" href="{{ site.button2_page.full_url_with_profile_recruiter }}">{{ site.button2_text }}</a>
+          {% endif %}
+
+          {% if site.has_button3? %}
+          <a class="submit-button" href="{{ site.button3_page.full_url_with_profile_recruiter }}">{{ site.button3_text }}</a>
+          {% endif %}
+
+          {% if request.current_signup.has_parent? %}
+          <div class="clearfix supporter-follow-item">
+            <div class="point-pic-left">
+              {{ request.current_signup.parent.bigger_profile_image }}
+            </div>
+            <div class="point-pic-right">
+              <div>
+                Point person:<br/>{{ request.current_signup.parent.published_name_linked }}
+              </div>
+              {% if request.current_signup.parent.has_twitter_info? %}
+              <a href="{{ request.current_signup.parent.twitter_profile_url }}"><i class="icon-twitter-squared"></i></a>
+              {% endif %}
+              {% if request.current_signup.parent.has_facebook_info? %}
+              <a href="{{ request.current_signup.parent.facebook_profile_url }}"><i class="icon-facebook-squared"></i></a>
+              {% endif %}
+              {% if request.current_signup.parent.has_email? %}
+              <a href="mailto:{{ request.current_signup.parent.email }}"><i class="icon-mail-alt"></i></a>
+              {% endif %}
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="span8 profile-stream">
+
+    {% if profile.most_recent_posts.size > 0 %}
+
+    <h2>{{ profile.published_name }}'s activity stream</h2>
+
+    <div id="content" class="padtopmore">
+      <div class="profile-posts">
+
+        <ul class="page-excerpts">
+          {% for post in profile.most_recent_posts %}
+          <li>
+            {{ post.activity.show }}
+
+            {% if post.activity.show_page? %}
+            <div class="form-wrap page-{{ post.page.id }}">
+              <h4><a href="{{ post.page.url | recruiter_url recruiter_id:profile.id }}">{{ post.page.headline }}</a></h4>
+              {% include "page_profile" with post.page %}
+            </div>
+
+            {% endif %}
+            
+            {% if post.activity.show %}
+            <hr/>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+
+      </div>
+
+      {{ profile.most_recent_posts | paginate prev_label: "&lt;" next_label: "&gt;" }}
+    </div>
+
+    {% else %}
+
+    <p>{{ profile.published_name }} doesn’t have any public activity.</p>
+
+    {% endif %}
+
+  </div>
+</div>

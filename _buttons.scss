@@ -1,0 +1,173 @@
+// buttons
+
+@mixin button(){
+  cursor: pointer;
+  display: inline-block;
+  @include border-radius(2px);
+  padding: .5em .99em;
+  text-align: center;
+  border: 0;
+  font: 1em $font;
+  color: $button-color;
+  background-color: $button-background;
+  border: $button-border;
+  text-decoration: none;
+  vertical-align: 0%;
+  a {
+    color: $button-color;
+    text-decoration: none;
+  }
+  &:hover {
+    background-color: $button-hover-background;
+    border: $button-hover-border;
+    color: $button-hover-color;
+  }
+  &:active {
+    background-color: $button-active-background;
+    border: $button-active-border;
+    color: $button-active-color;
+  }
+}
+
+.button,
+.small_button {
+  @include button;
+  margin: .5em 0 0 0;
+  & + .button {
+    margin-left: .5em;
+  }
+}
+
+.tiny-button {
+  font-size: 1em;
+  padding: .25em .5em;
+  min-height: 100%;
+}
+
+.submit-button, .success-button {
+  @include button;
+  margin: .5em 0 0 0;
+}
+
+.connect-button {
+  @include button;
+  font-family: 'proxima-nova', sans-serif;
+  font-size: .8em;
+  font-weight: 700;
+  height: 3em;
+  line-height: 2.1em;
+  overflow: hidden;
+  margin-right: 0;
+  margin-bottom: 1em;
+  border: none;
+  position:relative;
+  text-align:left;
+  padding-left: 62px;
+  max-width: 300px;
+  &:last-of-type {
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  &:hover, &:active {
+    border: none;
+  }
+  &:before {
+    content: "";
+    font-family: 'responsive';
+    font-weight: 400;
+    text-align:center;
+    width:50px;
+    height: 100%;
+    font-size: 1.5em;
+    line-height: 2em;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+a.connect-button-facebook {
+  color: #fff;
+  background-color: $facebook-color;
+  &:hover, &:active {
+    color: #fff;
+    background-color: lighten($facebook-color,15);
+  }
+  &:before {
+    content: "\e601";
+    background: lighten($facebook-color,15);
+  }
+}
+
+a.connect-button-twitter {
+  color: #fff;
+  background-color: $twitter-color;
+  &:hover, &:active {
+    color: #fff;
+    background-color: lighten($twitter-color,15);
+  }
+  &:before, &:active {
+    content: "\e602";
+    background: lighten($twitter-color,15);
+  }
+}
+
+.wrap-overlay, .content-user-sessions-new-wide .form, .content-user-sessions-new .form {
+  .connect-button {
+    min-width: 250px;
+  }
+}
+
+// red button, commonly used to cancel actions
+
+.destroy-link {
+  color: $red;
+  border-color: $red;
+  background: transparent;
+  &:hover {
+    border-color: lighten($red, 5);
+    color: lighten($red, 5);
+  }
+  &:active {
+    border-color: $red;
+    color: $red;
+    background: rgba($red,.6);
+  }
+}
+
+.submit-link {
+  @include button;
+  margin-top: 1em;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// button to close share box
+
+.share-close {
+  @include border-radius(0px);
+  float: right;
+  margin: -.6em -.35em 0 .8em; 
+  min-height: auto;
+  font-size: 2em;
+  line-height: 1;
+}
+
+.share-container {
+  .small-button {
+    min-height: 24px;
+    padding: .2em .4em;
+    font-size: .8em;
+    margin-right: .5em;
+  }
+  .button.share-close {
+    padding: 0;
+    border: none;
+    &:hover, &:active {
+      padding: 0;
+      border: none;
+    }
+  }
+}

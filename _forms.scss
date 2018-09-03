@@ -1,0 +1,359 @@
+// bootsrap forms
+
+::-webkit-input-placeholder {
+    color: $form-color;
+    opacity: .5 !important;
+}
+:-moz-placeholder {
+    color: $form-color;
+    @include opacity(.5);
+}
+::-moz-placeholder {
+    color: $form-color;
+    @include opacity(.5);
+}
+
+form {
+  padding: 0;
+}
+
+label, input, button, select, textarea {
+  font-family: $font;
+  font-size: 1em;
+  font-weight: normal;
+  line-height: 1.25; }
+
+input, textarea {
+  -webkit-appearance:none;
+  border-radius: 0;
+}
+
+input[type="file"] {
+  margin: .3em 0;
+  line-height: 1;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  vertical-align: top;
+  padding: 0; }
+
+.input_checkbox {
+  input {
+    margin-right: .3em !important;
+    float: left;
+    width: auto; } }
+
+select, textarea, input {
+  margin-bottom: 1em;
+  max-width: 100%;
+  display: inline-block;
+  font-size: 1em;
+  line-height: 1.25;
+  padding: $form-padding;
+  border-width: $form-border-width;
+  border-color: $form-border-color;
+  border-style: solid;
+  color: $form-color;
+  background: $textarea-background;
+  vertical-align: middle;
+}
+
+select {
+  padding: $form-padding;
+  padding-right: 1.5em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: '';
+  position: relative;
+  background: $dropdown-background-1;
+  background-size: 20px !important;
+  @include border-radius(0);
+}
+
+textarea {
+  min-height: 4.5em;
+  height: 4.5em;
+  width: 100%; }
+
+label + textarea {
+  margin-top: .5em;
+}
+
+textarea:focus, input:focus {
+  border-color: $theme-color-1;
+  outline: 0;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  /* IE8-9 */
+  line-height: normal;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+}
+
+input[type="radio"] {
+  -webkit-appearance: radio;
+}
+
+// prevents iOS from adding unwanted styles on submit buttons
+
+input[type="submit"] {
+  -webkit-appearance: none;
+}
+
+.radio input[type="radio"],
+.checkbox input[type="checkbox"] {
+  float: left;
+  margin: .2em .3em 1em 0;
+}
+// Ipad and smaller fix
+@media (max-width: 992px) {
+  .radio input[type="radio"],
+  .checkbox input[type="checkbox"] {
+    border: none;
+  }
+}
+
+.radio-inline, .checkbox-inline {
+  input[type="radio"], input[type="checkbox"] {
+    display: block;
+    position: absolute;
+    left: -9999px;
+  }
+  input[type="radio"]:checked+label, input[type="checkbox"]:checked+label {
+    background-color: $button-active-background;
+    border: $button-active-border;
+    color: $button-active-color;
+  }
+  label.radio, label.checkbox {
+    @include button;
+    margin: 0 1.2em 1.1em 0;
+  }
+  label.checkbox {
+    margin: .3em .3em 0 0;
+  }
+  &.checkbox-inline {
+    vertical-align: middle;
+    li {
+      vertical-align: middle;
+    }
+  }
+}
+
+.radio-inline {
+  label.radio {
+    border-color: $shade-3;
+    color: $shade-3;
+  }
+}
+
+.controls > .radio:first-child,
+.controls > .checkbox:first-child {
+  padding-top: .3em;
+}
+
+.inline-labels, .inline-radios {
+  input {
+    vertical-align: top;
+  }
+  label {
+    display: inline-block;
+    padding-left: .2em;
+    text-align: left;
+  }
+}
+
+.radio.inline + .radio.inline,
+.checkbox.inline + .checkbox.inline {
+  margin-left: .6em;
+}
+
+.checkbox, .radio {
+  margin-top:0;
+  margin-left:0;
+  vertical-align: 5%;
+}
+
+.form-submit,
+.form_submit {
+  font-size: 1em;
+}
+
+.form_submitting {
+  img {
+    margin-right: .3em;
+  }
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+  padding: $form-padding;
+}
+
+
+// expands all input fields to 100%
+
+.form {
+  label {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    z-index: 5;
+    margin: .2em .3em .2em 0;
+    vertical-align: 37%;
+  }
+  .text {
+    width: 100%;
+    max-width: 372px;
+    display: block;
+  }
+}
+
+// inline sign in form
+
+.user-session-form-container {
+  margin-top: 1em;
+  h4 {
+    margin-bottom: 1em;
+  }
+  .social-login {
+    float: left;
+    width: 200px;
+  }
+  .session-form {
+    float: left;
+    width: 200px;
+  }
+  input[type="email"], input[type="password"], input.text {
+    width: 100%
+  }
+  .or-create-account {
+    white-space: nowrap;
+    display: inline-block;
+    padding: 0;
+    margin-top: .5em;
+    vertical-align: 0%;
+  }
+  .email-sign-in {
+    white-space: nowrap;
+    display: inline-block;
+    padding: 0 0 0 1em;
+    vertical-align: middle;
+    margin-top: .4em; }
+  .post-comment {
+    margin-right: .2em;
+  }
+  .oauth-links {
+    margin-bottom: 1em;
+    a {
+      display: inline-block;
+    }
+  }
+  .errors {
+    list-style-type: none;
+    font-size: .8em;
+    margin-left: 0;
+    margin-top: 0;
+    line-height: 1.25;
+    display: none;
+  }
+}
+
+
+// form error messages
+
+.aware-theme.v2-theme .form-errors {
+
+  display: block;
+  > * {
+    margin: 1.8em;
+  }
+  ul, li {
+    list-style: none;
+  }
+
+}
+
+form input.error {
+  border-color: $red;
+  outline: 0;
+}
+
+.error-message, .form-error {
+  font-size: 0.8em;
+  color: $red;
+  margin-bottom: .8em;
+  display: inline-block;
+}
+
+.form-error {
+  position: relative;
+  top: -1em;
+  margin-bottom: -.8em;
+}
+
+.warning, #errorExplanation {
+  background-color: $red;
+  color: #fff;
+  padding: 1.8em;
+  margin: 0 0 1em 0;
+  line-height: 1.25;
+  h2 {
+    font-size: 1.25em;
+    line-height: 1.25;
+  }
+}
+
+input.quantity::-webkit-outer-spin-button,
+input.quantity::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+// NationBuilder Payments
+
+.StripeElement {
+  max-width: 100%;
+  padding: $form-padding;
+  border-width: $form-border-width;
+  border-color: $form-border-color;
+  border-style: solid;
+  background: $textarea-background;
+}
+.StripeElement--focus {
+  border-color: $theme-color-1;
+  outline: 0;
+}
+
+.card-error-container,
+.cardNumber-error-container,
+.cardExpiry-error-container,
+.cardCvc-error-container,
+.postalCode-error-container {
+  color: $red;
+}
+
+.page-type-nation-signup {
+  .payments-container {
+    min-height: 96px;
+    margin-bottom: 15px;
+    [class*="-error-container"] {
+      padding-top: 5px;
+      .card-error {
+        position: absolute;
+      }
+    }
+  }
+}

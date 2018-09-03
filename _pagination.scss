@@ -1,0 +1,56 @@
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.pagination {
+  margin: 2em 0;
+  a {
+    text-decoration: none;
+  }
+}
+.pagination ul {
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+
+  *zoom: 1;
+  margin: 0;
+  padding: 0;
+}
+.pagination ul > li {
+  display: inline;
+  padding: 0 .4em;
+}
+
+.pagination ul > li > a, 
+.pagination ul > li > span {
+  float: left;
+}
+.pagination ul > .active > a,
+.pagination ul > .active > span {
+  color: $shade-3;
+  cursor: default;
+}
+.pagination ul > .disabled > span,
+.pagination ul > .disabled > a,
+.pagination ul > .disabled > a:hover,
+.pagination ul > .disabled > a:focus {
+  cursor: default;
+}
+.pagination-centered {
+  text-align: center;
+}
+.pagination-right {
+  text-align: right;
+}

@@ -1,0 +1,26 @@
+<div class="event-item">
+  <div class="event-info event-day">
+    {{ event.event.local_start_at | date: '%d' }}
+  </div>
+  <div class="event-info event-date">
+    <span>{{ event.event.local_start_at | date: '%B, %Y' }}</span>
+    <span>{{ event.event.local_start_at | date: '%I:%M %p' }}</span>
+  </div>
+  <div class="event-info event-title">
+    <a href="{{ event.url }}">{{ event.name }}</a>{% if event.event.has_venue? %}<a href="{{ event.url }}">&nbsp;&mdash;&nbsp;{{ event.event.venue_name }}</a>{% endif %}
+  </div>
+  <div class="event-info event-more-info">
+    <a href="{{ event.url }}" class="event-info-link desktop-visible">More Info</a>
+  </div>
+  <div class="event-info event-rsvp">
+    {% if event.event.is_maximum_capacity? %}
+    <a href="{{ event.url }}" class="event-info-link mobile-visible"><i class="icon-info"></i></a><a class="destroy-link" href="{{ event.url }}">Sold Out</a>
+    {% elsif event.event.is_past? == false %}
+      {% if event.event.is_ticket_required? %}
+        <a href="{{ event.url }}" class="event-info-link mobile-visible"><i class="icon-info"></i></a><a href="{{ event.url }}">Buy Tickets</a>
+      {% elsif event.event.accept_rsvps? %}
+        <a href="{{ event.url }}" class="event-info-link mobile-visible"><i class="icon-info"></i></a><a href="{{ event.url }}">RSVP</a>
+      {% endif %}
+    {% endif %}
+  </div>
+</div>

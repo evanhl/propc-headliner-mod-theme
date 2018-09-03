@@ -1,0 +1,117 @@
+.page-pages-show-donation-wide {
+  h4 {
+    margin-bottom: 3em;
+  }
+  h4.subhead {
+    margin: 1em 0;
+  }
+  .donation_form .form-wrap {
+    margin-bottom: 1.25em;
+  }
+  .form-progress-indicator {
+    position: relative;
+  }
+  .progress-indicator-stages {
+    list-style-type: none;
+    padding: 0 0 2em 0;
+    margin: 0 auto;
+    width: auto;
+    text-align: center;
+    font-size: .9em;
+    li {
+      display: block;
+      float: left;
+      position: relative;
+      white-space: nowrap;
+      width: 33.3333333333%;
+      &:last-child {
+        margin-right: 0;
+        &:after {
+          display: none;
+        }
+      }
+      .stage-label {
+        color: $shade-3;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: inline-block;
+        font-size: 1.25em;
+        margin-bottom: .8em;
+      }
+      &.stage-1 .stage-label {
+        text-align: left;
+      }
+      &.stage-3 .stage-label {
+        text-align: right;
+      }
+      .stage-count {
+        position: relative;
+        display: block;
+        padding-top: 2.5em;
+        border-width: 0 0 .5em 0;
+        border-style: solid;
+        border-color: rgba($dropdown-background,.5);
+        z-index: 5;
+      }
+      &.active .stage-label {
+        color: $theme-color-1;
+      }
+      &.seen .stage-label {
+        color: $theme-color-1;
+      }
+      &.completed .stage-label {
+        color: $theme-color-1;
+      }
+      &.active .stage-count {
+        border-color: $theme-color-1;
+      }
+      &.seen .stage-count {
+        border-color: $theme-color-1;
+        cursor: pointer;
+      }
+      &.completed .stage-count {
+        border-color: $theme-color-1;
+        cursor: pointer;
+      }
+    }
+  }
+  .progress-stages {
+    @include inverted-form-colors;
+    @include transition(all 0.7s cubic-bezier(.3,0,.2,1));
+    background-color: $shade-1;
+    color: $shade-1-text;
+    padding: 1.8em;
+    margin-bottom: 3em;
+    .progress-stage {
+      min-height: 592px;
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+    textarea, input.text {
+      background-color: $form-background;
+    }
+  }
+  .progress-stage-button-next, input[type="submit"] {
+    float: right;
+    margin-top: 0;
+  }
+  .progress-stage-button-prev {
+    display: block;
+    margin-top: 1em;
+    &:before {
+      content:"<\0000a0";
+    }
+  }
+}
+
+.lt-ie9 .progress-indicator-stages li.stage-3:after {
+  display:none;
+}
+
+#donation_billing_address_state {
+  width: 100%;
+}

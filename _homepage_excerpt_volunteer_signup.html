@@ -1,0 +1,85 @@
+<div class="form">
+{% form_for volunteer_signup %}
+{% hidden_field_tag "page_id", homepage_excerpt.id %}
+
+  <div class="form-errors">{% error_messages_for volunteer_signup %}</div>
+
+    {% for volunteer_type in homepage_excerpt.volunteer_signup.volunteer_types %}
+    <div class="row-fluid">
+      <div class="span12"><label class="checkbox">
+        {% check_box_tag 'volunteer_signup[volunteer_type_ids][]', volunteer_type.id, collection:volunteer_signup.volunteer_type_ids, member:volunteer_type.id, class:"checkbox" %}
+        {{ volunteer_type.name }}
+      </label></div>
+    </div>
+    {% endfor %}
+  {% hidden_field_tag 'volunteer_signup[volunteer_type_ids][]', '' %}
+
+  {% if request.sorta_logged_in? == false or request.current_signup.has_name? == false %}
+  <div class="row-fluid">
+    <div class="span6">
+      {% text_field "first_name", class:"text", placeholder:"First Name" %}
+    </div>
+    <div class="span6">
+      {% text_field "last_name", class:"text", placeholder:"Last Name" %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if request.sorta_logged_in? == false %}
+  <div class="row-fluid">
+    <div class="span6">
+      {% email_field "email", class:"text", placeholder:"Email" %}
+    </div>
+    {% if site.ask_for_mobiles? %}
+    <div class="span6">
+      {% phone_field "mobile_number", class:"text", placeholder:"Mobile phone (optional)" %}
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="row-fluid">
+    <div class="span6">
+      <label class="checkbox" for="volunteer_signup_email_opt_in">{% check_box "email_opt_in", class:"checkbox" %} Send me email updates</label>
+    </div>
+    {% if site.ask_for_mobiles? %}
+    <div class="span6">
+      <label class="checkbox" for="volunteer_signup_mobile_opt_in">{% check_box "mobile_opt_in", class:"checkbox" %} Send me text messages</label>
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+  {% if homepage_excerpt.volunteer_signup.is_phone? %}
+  <div class="row-fluid">
+    <div class="span6">
+      {% phone_field "phone_number", class:"text", placeholder:"Phone" %}
+    </div>
+    <div class="span6">
+      {% text_field "phone_time", class:"text", placeholder:"When is a good time to call?" %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if homepage_excerpt.volunteer_signup.is_address? %}
+  {% if request.sorta_logged_in? == false or request.current_signup.has_full_address? == false %}
+  <div class="row-fluid">
+    <div class="span12">
+      {% text_field "submitted_address", class:"text", placeholder:"Address" %}
+    </div>
+  </div>
+  {% endif %}
+  {% endif %}
+
+  {% if site.ask_to_publish_to_stream? %}
+  <div class="row-fluid">
+    <div class="span12">
+      <label class="checkbox" for="volunteer_signup_is_private">{% check_box "is_private", class:"checkbox" %} Don't publish this on the website</label>
+    </div>
+  </div>
+  {% endif %}
+
+  {% submit_tag "Save volunteer info", class:"submit-button" %}
+  <div class="form-submit"></div>
+
+  {% endform_for %}
+
+</div>

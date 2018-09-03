@@ -1,0 +1,4 @@
+<div class="byline">
+  By {{ page.author.published_name_linked }} {% if post.public_activities_count > 0 %}{{ post.public_activities_count }} &nbsp;&middot;&nbsp; Reaction{% if post.public_activities_count > 1 %}s{% endif %}{% endif %} <span class="mobile-visible"> &nbsp;&middot;&nbsp; {{ page.published_at | date: '%B %d, %Y' }}</span>{% if site.has_rule_page? and request.logged_in? %} &nbsp;&middot;&nbsp; <a href="{{ page.flag_url }}" class="flag">Flag</a>{% endif %}
+  <div class="publish-date desktop-visible"><div class="publish-date-day">{{ page.published_at | date: '%d' }}</div>{{ page.published_at | date: '%B %Y' }}</div>
+</div>
