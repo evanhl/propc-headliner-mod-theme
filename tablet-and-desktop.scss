@@ -404,6 +404,19 @@ nav, .subnav {
         // color: rgba(255,255,255,0.75);
       }
     }
+    &.nav-social-buttons {
+      /*
+       * This is kind of gross, but it's gonna be pretty annoying to change
+       * everything over to flexbox so ¯\_(ツ)_/¯.
+       */
+      a {
+        display: inline-block;
+        float: left;
+        width: 40px;
+        height: 40px;
+        line-height: 99px;
+      }
+    }
     &.donate {
       background: #67CD51;
 
