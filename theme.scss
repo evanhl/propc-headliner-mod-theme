@@ -7,13 +7,13 @@
 $theme: default;
 
 // headline font
-$headline-font: "Oswald", "Helvetica Narrow", "Arial Narrow", sans-serif;
+$headline-font: "Catamaran", "Helvetica Narrow", "Arial Narrow", sans-serif;
 
 // main font
 $font: "futura-pt", Helvetica, Arial, sans-serif;
-$text-color: #fff;
+$text-color: black;
 
-$theme-color-1: #06f5ed;
+$theme-color-1: #128EB8;
 $theme-color-2: #f2f2f2;
 
 // form input area focus color
@@ -24,7 +24,7 @@ $link-color: $theme-color-1;
 $link-decoration: none;
 
 // body and containers
-$background: #191919;
+$background: white;
 $background-texture: transparent;
 $shade-1: #000;
 $shade-1-text: #fff;
@@ -37,7 +37,7 @@ $green: #619114;
 
 // header and footer
 $header-texture: none;
-$header-background: #000;
+$header-background: white;
 $header-color: #fff;
 $slider-content-background-1: rgba(0, 0, 0, 0.85);
 $slider-content-background-2: rgba(25, 25, 25, 0.75);
@@ -67,19 +67,19 @@ $form-select-border-width: 3px;
 $form-border-color: #fff;
 $form-padding: 0.5em 0.65em;
 $form-background: #1e1e1e;
-$textarea-background: #1e1e1e;
+$textarea-background: #e0e0e0;
 
 // navigation
-$nav-background: #000;
-$nav-color: #f2f2f2;
-$nav-hover-color: #06f5ed;
-$nav-active-color: #06f5ed;
+$nav-background: white;
+$nav-color: #128EB8;
+$nav-hover-color: #8ab9d2;
+$nav-active-color: #128EB8;
 $nav-active-background: $nav-background;
 $nav-2-background: $background;
 $nav-2-color: #fff;
 $dropdown-background: rgba(0, 0, 0, 0.8);
 $dropdown-color: #ccc;
-$dropdown-hover-color: #06f5ed;
+$dropdown-hover-color: #128EB8;
 $mobile-nav-background: #000;
 $mobile-nav-active-background: #008081;
 $mobile-subnav-background: #4b4b4b;
@@ -89,9 +89,9 @@ $user-menu-social-button-background: #ababab;
 $user-menu-social-button-color: #fff;
 
 // footer
-$footer-background: #000;
+$footer-background: $theme-color-1;
 $footer-color: #fff;
-$footer-background-2: $background;
+$footer-background-2: $theme-color-1;
 $footer-color-2: #fff;
 
 // misc
@@ -358,7 +358,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1, h2, h3, h4 {
   font-family: $headline-font;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   margin: 0;
   padding: 0;
   line-height: 1.25em;
@@ -1464,24 +1464,25 @@ ul#page-stream {
 
 // site wide footer
 .footer-wrap {
+  $placeholder-color: #000;
   background: $footer-background-2;
   color: $footer-color-2;
   ::-webkit-input-placeholder {
-    color: $shade-1-text;
+    color: $placeholder-color;
     opacity: .5 !important;
   }
   :-moz-placeholder {
-      color: $shade-1-text;
+      color: $placeholder-color;
       @include opacity(.5);
   }
   ::-moz-placeholder {
-      color: $shade-1-text;
+      color: $placeholder-color;
       @include opacity(.5);
   }
   select, textarea, input {
     border-color: $shade-1-text;
-    color: $shade-1-text;
-    background: $form-background;
+    color: #000;
+    background: #e0e0e0;
   }
   select { background: $dropdown-background-2; }
   textarea:focus, input:focus {
@@ -1489,23 +1490,29 @@ ul#page-stream {
     outline: 0;
   }
   .button, .submit-button, button, label.radio {
-    border-color: $button-color;
-    color: $button-color;
+    border-color: #fff;
+    color: #fff;
     background: $button-background;
+    transition: background-color 0.25s;
     a {
       color: $button-color;
       text-decoration: none;
     }
     &:hover {
-      background-color: $button-hover-background;
-      border: $button-hover-border;
-      color: $button-hover-color;
+      background-color: lighten($theme-color-1, 8);
+      border: 3px solid #fff;
+      color: #fff;
     }
     &:active {
       background-color: $button-active-background;
-      border: $button-active-border;
-      color: $button-active-color;
+      border: 3px solid #fff;
+      color: #fff;
     }
+  }
+  a {
+      color: #fff;
+      text-decoration: underline;
+      text-decoration-style: dotted;
   }
   @if $link-decoration == underline or $theme == black or $theme == white {
     a {
@@ -2685,7 +2692,7 @@ h4.expander-head {
         z-index: 10;
         width: 100%;
         height: 100%;
-        background: transparent $divider-background-2;
+        // background: transparent $divider-background-2;
       }
     }
   }
@@ -2711,7 +2718,7 @@ h4.expander-head {
   a.features-headline {
     @include slider-content-background($slider-content-background-2);
     font-family: $headline-font;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     z-index: 2;
     width: 85%;
     font-size: 1.5em;

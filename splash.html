@@ -94,11 +94,11 @@
           </div>
           <!-- .header-container -->
           <div class="main-container" id="middle">
-            <div class="main-transform-wrap">          
+            <div class="main-transform-wrap">
               <div class="main width-container clearfix">
 
                 {{ content_for_notifications }}
-                  
+
                 <div class="onecolumn-container clearfix">
                  <div class="content-{{ request.template | replace: '_', '-' }}">
                   {% yield %}
@@ -121,13 +121,13 @@
                       {% unless site.recent_supporters_with_pictures == empty %}
                       <h4>Powered by people like you</h4>
                       <div class="desktop-visible footer-supporter-tiles clearfix">
-                        {% for signup in site.recent_supporters_with_pictures limit:20 %} 
-                        {{ signup.bigger_profile_image }} 
+                        {% for signup in site.recent_supporters_with_pictures limit:20 %}
+                        {{ signup.bigger_profile_image }}
                         {% endfor %}
                       </div>
                       <div class="mobile-visible footer-supporter-tiles clearfix">
-                        {% for signup in site.recent_supporters_with_pictures limit:8 %} 
-                        {{ signup.bigger_profile_image }} 
+                        {% for signup in site.recent_supporters_with_pictures limit:8 %}
+                        {{ signup.bigger_profile_image }}
                         {% endfor %}
                       </div>
                       {% endunless %}
@@ -155,8 +155,8 @@
                       {% unless site.recent_supporters_with_pictures == empty %}
                       <h4>Powered by people like you</h4>
                       <div class="footer-supporter-tiles">
-                        {% for signup in site.recent_supporters_with_pictures limit:8 %} 
-                        {{ signup.bigger_profile_image }} 
+                        {% for signup in site.recent_supporters_with_pictures limit:8 %}
+                        {{ signup.bigger_profile_image }}
                         {% endfor %}
                       </div>
                       {% endunless %}
@@ -189,13 +189,6 @@
                         {% endif %}
                       </div>
                       <div class="footer-text">{{ site.footer_content }}</div>
-                    </div>
-                  </div>
-                  <div class="row-fluid">
-                    <div class="span12 footer-right">
-                      <!-- The NationBuilder link below is required. If it is removed, we may add it back ourselves.
-                        You can style it or move it in different ways, but please leave it in the footer. -->
-                      Created with <a href="http://nationbuilder.com/">NationBuilder</a>
                     </div>
                   </div>
                 </footer>

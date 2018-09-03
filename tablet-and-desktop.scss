@@ -7,13 +7,13 @@
 $theme: default;
 
 // headline font
-$headline-font: "Oswald", "Helvetica Narrow", "Arial Narrow", sans-serif;
+$headline-font: "Catamaran", "Helvetica Narrow", "Arial Narrow", sans-serif;
 
 // main font
 $font: "futura-pt", Helvetica, Arial, sans-serif;
 $text-color: #fff;
 
-$theme-color-1: #06f5ed;
+$theme-color-1: #128EB8;
 $theme-color-2: #f2f2f2;
 
 // form input area focus color
@@ -24,7 +24,7 @@ $link-color: $theme-color-1;
 $link-decoration: none;
 
 // body and containers
-$background: #191919;
+$background: white;
 $background-texture: transparent;
 $shade-1: #000;
 $shade-1-text: #fff;
@@ -37,7 +37,7 @@ $green: #619114;
 
 // header and footer
 $header-texture: none;
-$header-background: #000;
+$header-background: white;
 $header-color: #fff;
 $slider-content-background-1: rgba(0, 0, 0, 0.85);
 $slider-content-background-2: rgba(25, 25, 25, 0.75);
@@ -69,16 +69,16 @@ $form-background: #1e1e1e;
 $textarea-background: #1e1e1e;
 
 // navigation
-$nav-background: #000;
-$nav-color: #f2f2f2;
-$nav-hover-color: #06f5ed;
-$nav-active-color: #06f5ed;
+$nav-background: white;
+$nav-color: #128EB8;
+$nav-hover-color: #8ab9d2;
+$nav-active-color: #128EB8;
 $nav-active-background: $nav-background;
 $nav-2-background: $background;
 $nav-2-color: #fff;
 $dropdown-background: rgba(0, 0, 0, 0.8);
 $dropdown-color: #ccc;
-$dropdown-hover-color: #06f5ed;
+$dropdown-hover-color: #128EB8;
 $mobile-nav-background: #000;
 $mobile-nav-active-background: #008081;
 $mobile-subnav-background: #4b4b4b;
@@ -88,7 +88,7 @@ $user-menu-social-button-background: #ababab;
 $user-menu-social-button-color: #fff;
 
 // footer
-$footer-background: #000;
+$footer-background: white;
 $footer-color: #fff;
 $footer-background-2: $background;
 $footer-color-2: #fff;
@@ -104,7 +104,7 @@ $highlight-background: $shade-2;
 -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2191919,endColorstr=#B2191919)";
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2191919,endColorstr=#B2191919);
     zoom: 1;
-  background: $shade; 
+  background: $shade;
 }
 
 // border-radius mixin
@@ -169,6 +169,12 @@ footer.width-container, .footer-signup.width-container {
   text-align: left;
   .footer-right {
     text-align:right;
+  }
+
+  a {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
   }
 }
 
@@ -255,12 +261,16 @@ footer.width-container, .footer-signup.width-container {
   left: 0;
   width: 100%;
   z-index: 9998;
-  -webkit-backface-visibility: hidden; 
+  -webkit-backface-visibility: hidden;
   -webkit-transform: translateZ(0);
   @include transition(all 0.7s cubic-bezier(.3,0,.2,1));
   &.active {
     left: -15em;
   }
+}
+
+nav {
+  margin: 1em 0;
 }
 
 nav, .subnav {
@@ -357,18 +367,18 @@ nav, .subnav {
   }
   .topnav {
     list-style: none;
-    text-align: center;
+    text-align: right;
   }
   li {
     display: inline-block;
     margin-right: 2em;
-    padding: 1.5em 0;
+    padding: 0;
     position: relative;
     font-family: $headline-font;
     font-size: 1em;
     font-weight: 300;
-    line-height: 1;
-    text-transform: uppercase;
+    line-height: 67px;
+    // text-transform: uppercase;
     border:0;
     a {
       display: block;
@@ -377,6 +387,36 @@ nav, .subnav {
       color: $nav-color;
       padding: 0;
       text-align: left;
+      font-weight: bold;
+    }
+    &.donate, &.get-involved {
+      line-height: 40px;
+      color: white;
+      padding: 0 10px;
+      border-radius: 6px;
+      transition: background-color 0.25s;
+
+      a {
+        color: white;
+      }
+      &:hover a {
+        color: white;
+        // color: rgba(255,255,255,0.75);
+      }
+    }
+    &.donate {
+      background: #67CD51;
+
+      &:hover {
+        background: lighten(#67CD51, 8);
+      }
+    }
+    &.get-involved {
+      background: #ff6503;
+
+      &:hover {
+        background: lighten(#ff6503, 12);
+      }
     }
     &:last-child {
       margin-right: 0;
@@ -389,6 +429,7 @@ nav, .subnav {
     &:active {
       background: transparent;
       color: $nav-hover-color;
+      padding-bottom: 0.25em;
     }
     &.active {
       background: $nav-active-background;
@@ -846,7 +887,7 @@ ul#page-stream {
   li.activity  {
     span + a {
     display: inline;
-    } 
+    }
   }
   .activity-time {
     display: inline;
@@ -931,7 +972,7 @@ ul#page-stream {
         }
         a {
           font-size: 1em;
-          text-transform: uppercase;
+          // text-transform: uppercase;
         }
       }
     }
@@ -1010,7 +1051,7 @@ ul#page-stream {
   // maximum side width container
 
   .width-container {
-    width: 830px;
+    width: 920px;
     margin: 0 auto;
     padding-left: 0;
     padding-right:0;
@@ -1019,7 +1060,7 @@ ul#page-stream {
   nav {
     .topnav-wrap {
       margin: 0 auto;
-      width: 770px;
+      width: 850px;
     }
   }
 
@@ -1037,4 +1078,15 @@ ul#page-stream {
     }
   }
 
+}
+
+/* Put custom Prop C classes below here */
+.nav-logo {
+  border: none;
+  float: left;
+  height: auto;
+  max-height: 67px;
+  max-width: 100%;
+  vertical-align: middle;
+  width: auto;
 }

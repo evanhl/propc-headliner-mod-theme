@@ -6,21 +6,24 @@
   </a>
   {% else %}
   {% unless request.template == 'user_sessions_new_wide' or request.template == 'user_sessions_new' %}
+  <!--
   <span class="user-menu-login desktop-visible">
     <a href="/forms/user_sessions/new" data-behavior="cache-comment">Sign In</a>
   </span>
+  -->
   {% endunless %}
   {% endif %}
   <div class="nav-menu">
     <div id="topnav-wrap" class="topnav-wrap width-container">
       <ul id="topnav" class="topnav desktop-nav">
+        <a href="{{ site.homepage.url }}"><img src="prop-c-logo-500.png" class="nav-logo"></a>
         {% for child in site.root_nav_pages %}
         {% if child.leaf? or child.nav_children.size == 0 %}
-        <li {% if child.is_or_is_ancestor_of_current_page? %}class="active"{% endif %}>
+        <li class="{% if child.is_or_is_ancestor_of_current_page? %}active{% endif %} {% if child.name == "Get Involved" %}get-involved{% endif %} {% if child.name == "Donate" %}donate{% endif %}">
           <a href="{{ child.url }}">{{ child.name }}</a>
         </li>
         {% else %}
-        <li class="{% if child.is_or_is_ancestor_of_current_page? %}active{% endif %} drop">
+        <li class="{% if child.is_or_is_ancestor_of_current_page? %}active{% endif %} drop {% if child.name == "Get Involved" %}get-involved{% endif %} {% if child.name == "Donate" %}donate{% endif %}">
           <a href="{{ child.url }}">{{ child.name }} <i class="icon-angle-down"></i></a>
           <ul class="sub">
             {% if site.show_parent_in_nav_dropdown? %}

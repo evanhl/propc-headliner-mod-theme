@@ -1,15 +1,16 @@
 // bootsrap forms
+$placeholder-color: #000;
 
 ::-webkit-input-placeholder {
-    color: $form-color;
+    color: $placeholder-color;
     opacity: .5 !important;
 }
 :-moz-placeholder {
-    color: $form-color;
+    color: $placeholder-color;
     @include opacity(.5);
 }
 ::-moz-placeholder {
-    color: $form-color;
+    color: $placeholder-color;
     @include opacity(.5);
 }
 
