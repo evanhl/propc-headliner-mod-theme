@@ -2877,9 +2877,13 @@ h4.expander-head {
 // homepage widgets
 
 ul.homepage_excerpt-list {
-  margin-top: 5em;
-  padding: 0;
   list-style: none;
+  margin: 5em auto 0;
+  max-width: 1440px;
+  padding-left: 5%;
+  padding-right: 5%;
+  text-align: left;
+
   li.excerpt-block {
     list-style: none;
     margin-bottom: 3.5em;

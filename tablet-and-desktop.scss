@@ -121,11 +121,6 @@ $highlight-background: $shade-2;
 
 // page layout if the sidebar is turned on
 
-.onecolumn-container {
-  padding-left: 1.8em;
-  padding-right: 1.8em;
-}
-
 .twocolumn-container {
   margin-bottom: 2em;
   .left-column, .right-column-wide {
@@ -164,9 +159,11 @@ header {
 // site wide footer
 
 footer.width-container, .footer-signup.width-container {
-  padding-left: 1.8em;
-  padding-right: 1.8em;
+  max-width: 1440px;
+  padding-left: 5%;
+  padding-right: 5%;
   text-align: left;
+
   .footer-right {
     text-align:right;
   }
@@ -1060,21 +1057,33 @@ ul#page-stream {
 }
 
 @media only screen and (min-width: 922px) {
-
-  // maximum side width container
-
   .width-container {
-    width: 920px;
     margin: 0 auto;
-    padding-left: 0;
-    padding-right:0;
+    padding: 0;
   }
 
-  nav {
-    .topnav-wrap {
-      margin: 0 auto;
-      width: 850px;
+  .chunk {
+    padding: 1em 0;
+
+    &:first-child {
+      padding-top: 0;
     }
+  }
+
+  .chunk .copy,
+  nav .topnav-wrap {
+    margin: 0 auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    max-width: 1440px;
+  }
+
+  /*
+   * `chunk` classes are the full page width blocks of text.  This allows us to
+   * easily change background colors.
+   */
+  .chunk-2 {
+    background-color: #f5da4f;
   }
 
   .page-features {
