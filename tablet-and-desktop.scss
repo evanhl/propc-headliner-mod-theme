@@ -411,7 +411,11 @@ nav, .subnav {
         float: left;
         width: 40px;
         height: 40px;
-        line-height: 87px;
+        /*
+         * nav li line-height of 67px.  Social icon height of 40px.
+         * (67 * 2) - 40 = 94
+         */
+        line-height: 94px;
       }
     }
     &.donate {
