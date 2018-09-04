@@ -7,10 +7,10 @@
 $theme: default;
 
 // headline font
-$headline-font: "Oswald", "Helvetica Narrow", "Arial Narrow", sans-serif;
+$headline-font: "Slabo 27px", serif;
 
 // main font
-$font: "Oswald", Helvetica, Arial, sans-serif;
+$font: "Catamaran", "Helvetica Narrow", "Arial Narrow", sans-serif;
 $text-color: #fff;
 
 $theme-color-1: #128EB8;
@@ -371,7 +371,7 @@ nav, .subnav {
     margin-right: 2em;
     padding: 0;
     position: relative;
-    font-family: $headline-font;
+    font-family: $font;
     font-size: 1em;
     font-weight: 300;
     line-height: 67px;
