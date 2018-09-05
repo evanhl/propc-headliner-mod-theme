@@ -279,7 +279,6 @@ nav, .subnav {
   width: 100%;
   position: static;
   .nav-menu {
-    padding: 0 135px 0 135px;
     position: relative;
   }
   .user-menu {
@@ -373,9 +372,8 @@ nav, .subnav {
     position: relative;
     font-family: $font;
     font-size: 1em;
-    font-weight: 300;
+    font-weight: bold;
     line-height: 67px;
-    // text-transform: uppercase;
     border:0;
     a {
       display: block;
@@ -1067,7 +1065,7 @@ ul#page-stream {
   }
 
   .chunk {
-    padding: 1em 0;
+    padding: 1.5rem 0 0.5rem 0;
 
     &:first-child {
       padding-top: 0;
@@ -1075,11 +1073,11 @@ ul#page-stream {
   }
 
   .chunk .copy,
-  nav .topnav-wrap {
+  nav .topnav-wrap,
+  h2.headline {
     margin: 0 auto;
-    padding-left: 5%;
-    padding-right: 5%;
-    max-width: 1440px;
+    max-width: 1100px;
+    padding: 0 3%;
   }
 
   /*

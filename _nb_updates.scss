@@ -241,6 +241,11 @@
     margin: auto 0;
   }
 }
+@media (max-width: 768px) {
+  .site-logo-wrap {
+    display: none;
+  }
+}
 @media (max-width: 921px ) {
   .onecolumn-container {
     margin: auto;
