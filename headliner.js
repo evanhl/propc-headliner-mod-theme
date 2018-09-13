@@ -6,6 +6,7 @@ $(document).ready(function(){
 
     // Initializes sticky nav
     this.initNavigation = function(nav, navWrap, navContainer, supporterNav, mainContainer) {      
+        return false;
       if (nav.length && ($(window).width() >= 768)) {
         var transformWrap = mainContainer.find('.main-transform-wrap');
         if (nav.height()>75) {

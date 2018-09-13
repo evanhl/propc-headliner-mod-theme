@@ -97,6 +97,49 @@
               {% include "nav" %}
             </div>
             <!-- .nav-container -->
+
+            <div class="chunk chunk-0">
+              <div class="copy">
+                <div class="left">
+                  <div class="row-fluid footer-form">
+                    <div class="span6 clearfix padbottommore">
+                      <h2>Join the movement</h2>
+                      <div class="form">
+                        {% form_for signup %}
+                        <div class="row-fluid">
+                          <div class="span12">{% text_field "first_name", class:"text", placeholder:"First Name", required: "required" %}</div>
+                        </div>
+                        <div class="row-fluid">
+                          <div class="span12">{% email_field "email", class:"text", placeholder:"Email", required: "required" %}</div>
+                        </div>
+                        {% submit_tag "Subscribe", class:"submit-button" %}
+                        <div class="form-submit"></div>
+                        {% endform_for %}
+                      </div>
+                    </div>
+                    <div class="span1"></div>
+                      {% if false %}
+                      <div class="span5">
+                        {% unless site.recent_supporters_with_pictures == empty %}
+                        <h4>Powered by people like you</h4>
+                        <div class="footer-supporter-tiles">
+                          {% for signup in site.recent_supporters_with_pictures limit:8 %}
+                          {{ signup.bigger_profile_image }}
+                          {% endfor %}
+                        </div>
+                        {% endunless %}
+                      </div>
+                      {% endif %}
+                  </div>
+                </div>
+                <div class="right">
+                  <!-- Photo is a background image -->
+                  <h1>The homeless crisis hurts all of us</h1>
+                </div>
+              </div>
+            </div>
+            <!-- call to action stuffs -->
+
             <div class="main-transform-wrap">
               <div class="main width-container clearfix">
                 {% if request.is_sidebar? %}
@@ -105,6 +148,7 @@
                 {% include "columns_1" %}
                 {% endif %}
               </div>
+
               <!-- .main -->
               <div class="footer-wrap">
                 <div class="footer-signup width-container">

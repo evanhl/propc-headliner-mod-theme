@@ -253,7 +253,7 @@ footer.width-container, .footer-signup.width-container {
 
 .nav-container {
   background: $nav-background;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -1084,6 +1084,38 @@ ul#page-stream {
    * `chunk` classes are the full page width blocks of text.  This allows us to
    * easily change background colors.
    */
+  .chunk-0 {
+    background: url("./header.jpg") 0 -170px no-repeat $theme-color-1;
+    background-size: 100%;
+    padding-top: 104px;
+    overflow: hidden; /* For dealing with the floats. CSS is (still) bullshit. */
+
+    h1,
+    h2 {
+      color: white;
+    }
+
+    h1 {
+      background: rgba(0, 0, 0, 0.7);
+      font-size: 3.75em;
+      margin-top: 40px;
+      padding: 0.2em;
+      // transform: rotate(-3deg);
+    }
+
+    h2 {
+      letter-spacing: 0.1em;
+      margin-top: 1em;
+      text-transform: uppercase;
+    }
+
+    .left .span6 {
+      background-color: rgba(0, 0, 0, 0.7);
+      margin-top: 40px;
+      padding: 1em;
+    }
+  }
+
   .chunk-2 {
     background-color: #f5da4f;
   }
@@ -1113,4 +1145,17 @@ ul#page-stream {
   max-width: 100%;
   vertical-align: middle;
   width: auto;
+}
+
+.left,
+.right {
+  width: 50%;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
 }
