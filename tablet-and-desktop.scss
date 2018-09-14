@@ -1087,6 +1087,7 @@ ul#page-stream {
   .chunk-0 {
     background: url("./header.jpg") 0 -170px no-repeat $theme-color-1;
     background-size: 100%;
+    min-height: 800px;
     padding-top: 104px;
     overflow: hidden; /* For dealing with the floats. CSS is (still) bullshit. */
 
@@ -1116,8 +1117,42 @@ ul#page-stream {
     }
   }
 
+  .chunk-1 p {
+    max-width: 60%;
+  }
+
   .chunk-2 {
     background-color: #f5da4f;
+
+    h1 span {
+      background: black;
+      color: white;
+      padding: 10px;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    li:before {
+      content: "\2713";
+    }
+
+    li {
+      font-size: 1.25em;
+      margin: 0.5em 0;
+    }
+
+    table {
+      border-collapse: unset !important; /* I'm sorry */
+      border-bottom: 5px solid black;
+      margin-bottom: 1em;
+      padding-bottom: 1em;
+    }
+
+    td {
+      vertical-align: top;
+    }
   }
 
   .page-features {
